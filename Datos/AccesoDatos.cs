@@ -62,7 +62,19 @@ namespace Datos
             DataTable datos = Metadatos.Ejecutar_Parametros(_comando);
             return datos;
         }
+        public static DataTable CambiarEstadoPedido(int id, int estado, string CadenaConexion)
+        {
+            string _cadenaconexion = CadenaConexion;
+            SqlConnection _conexion = new SqlConnection(_cadenaconexion);
 
+            SqlCommand _comando = new SqlCommand("CambiarEstadoPedido", _conexion);
+            _comando.Parameters.AddWithValue("@id", id);
+            _comando.Parameters.AddWithValue("@est", estado);
+
+            _comando.CommandType = CommandType.StoredProcedure;
+            DataTable datos = Metadatos.Ejecutar_Parametros(_comando);
+            return datos;
+        }
         public static DataTable AgregarDetallePedido(int codpedido, int codproducto, int cantproducto, decimal precio, decimal subtotal, string CadenaConexion)
         {
             string _cadenaconexion = CadenaConexion;

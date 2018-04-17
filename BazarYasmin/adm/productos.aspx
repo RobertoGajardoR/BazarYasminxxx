@@ -124,6 +124,9 @@
                         <asp:Label ID="Label7" runat="server" Text='<%# Bind("descproducto") %>'></asp:Label>
                     </ItemTemplate>
             <HeaderStyle CssClass="GridHeader" />
+            <EditItemTemplate>
+                        <asp:TextBox ID="editdescripcion" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Categoria" SortExpression="codcategoria">
                     <EditItemTemplate>
@@ -143,12 +146,18 @@
                         <asp:Label ID="Labelr" runat="server" Text='<%# Bind("preproducto") %>'></asp:Label>
                     </ItemTemplate>
             <HeaderStyle CssClass="GridHeader" />
+            <EditItemTemplate>
+                        <asp:TextBox ID="editprecio" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Cantidad" SortExpression="canproducto">
                     <ItemTemplate>
                         <asp:Label ID="Label51" runat="server" Text='<%# Bind("canproducto") %>'></asp:Label>
                     </ItemTemplate>
             <HeaderStyle CssClass="GridHeader" />
+            <EditItemTemplate>
+                        <asp:TextBox ID="editcant" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
         </asp:TemplateField>
         <asp:CommandField  ButtonType="Image"  ControlStyle-Width="30" ControlStyle-Height="30" ShowDeleteButton="True" ShowEditButton="True" CancelImageUrl="~/img/dialog-error.png" DeleteImageUrl="~/img/trashcan_full_alt.png" DeleteText="Baja" EditImageUrl="~/img/edit.png" UpdateImageUrl="~/img/148752.png" >
                          

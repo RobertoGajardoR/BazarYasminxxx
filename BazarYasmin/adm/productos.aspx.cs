@@ -43,13 +43,17 @@ namespace BazarYasmin.adm
 
             if(PrepararConsulta.AgregarProducto(descripcion, codcategoria, precioo, cantidadd, imagen, cadenaconexion))
             {
-                Response.Write("<script>alert('Producto " + descripcion + " agregado correctamente');</script>");
-
+                //Response.Write("<script>alert('Producto " + descripcion + " agregado correctamente');</script>");
+                string script = "alert('Producto " + descripcion + " agregado correctamente');";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
             }
             else
             {
-                Response.Write("<script>alert('Producto no se agrego correctamente');</script>");
-
+                //Response.Write("<script>alert('Producto no se agrego correctamente');</script>");
+                string script = "alert('Producto no se agrego correctamente');";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
             }
         }
 

@@ -68,6 +68,23 @@ namespace Negocio
             return result;
 
         }
+        public static bool CambiarEstadoPedido(int id, int estado, string CadenaConexion)
+        {
+            Boolean result = false;
+            try
+            {
+                AccesoDatos.CambiarEstadoPedido(id, estado, CadenaConexion);
+                result = true;
+            }
+            catch (Exception)
+            {
+                result = false;
+                throw;
+            }
+            return result;
+
+        }
+
         public static bool AgregarDetallePedido(int codpedido, int codproducto, int cantproducto, decimal precio, decimal subtotal, string CadenaConexion)
         {
             Boolean result = false;
