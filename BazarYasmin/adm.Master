@@ -1,0 +1,202 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adm.master.cs" Inherits="BazarYasmin.adm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+        <link href="~/faviconby.png" rel="shortcut icon" type="image/x-icon" />
+
+        <webopt:bundlereference runat="server" path="~/Content/css" />
+
+    <!-- Custom CSS -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+
+    
+    <link href="Content/sb-admin.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <script src="https://use.fontawesome.com/0bcf8eb300.js"></script>
+
+        <title><%: Page.Title %> - Admin Bazar Yasmin</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+     
+</head>
+<body>
+    <form runat="server">
+       
+     <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          
+                
+               
+                <asp:Image ID="Image1" runat="server"  Height="47px" style="margin-left:10px" ImageUrl="~/img/LogoBazarYasmin.png" Width="218px" />
+<%--                <asp:Image ID="Image2" runat="server" style="margin-top:8px" ImageUrl="~/img/engranajes.png" Height="35px" Width="35px" />--%>
+
+                       </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+               
+                <li class="dropdown">
+                    <a  class="dropdown-toggle" style="cursor:pointer;" data-toggle="dropdown"><i  class="fa fa-user"></i> <%: Session["useradmin"] %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+<%--                           <asp:HyperLink  ID="HyperLink1" OnServerClick="RemoveSessionAdmin" runat="server"><i class="fa fa-fw fa-power-off"></i>Cerrar Session</asp:HyperLink>--%>
+<%--                            <a href="#" OnServerClick="RemoveSessionAdmin" runat="server"><i class="fa fa-fw fa-power-off"></i> Log Out</a>--%>
+                         <asp:LinkButton OnClick="RemoveSessionAdmin" runat="server"><i class="fa fa-fw fa-power-off"></i> Cerrar Session</asp:LinkButton>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                      <ul class="nav navbar-nav side-nav">
+                          <li ><a href="~/adm/inicio.aspx"><i class="fa fa-fw fa-dashboard"></i>Inicio</a> </li>
+                          <li><a href="~/adm/pedidos.aspx"><i class="fa fa-fw fa-shopping-basket"></i>Pedidos</a> </li>
+                          <li><a href="~/adm/productos.aspx"><i class="fa fa-fw fa-futbol-o"></i>Productos</a> </li>
+                          <li><a href="~/adm/clientes.aspx"><i class="fa fa-fw fa-user-circle-o"></i>Clientes</a> </li>
+                      </ul>
+                </asp:ContentPlaceHolder>
+              
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper" style="margin-top: -50px; height:100%; " class="auto-style1">
+
+            <div class="container-fluid">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+        
+       
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    
+    <!-- Bootstrap Core JavaScript -->
+    
+<asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Para obtener más información sobre cómo agrupar scripts en ScriptManager, consulte http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Scripts de marco--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Scripts del sitio--%>
+            </Scripts>
+        </asp:ScriptManager>
+</form>
+ <style type="text/css">
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+::-webkit-scrollbar-button {
+  width: 100px;
+  height: 100px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #a8a8a8;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #797979;
+}
+::-webkit-scrollbar-track:active {
+  background: #484848;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+     .auto-style1 {
+         height: 20px;
+     }
+ </style>
+
+</body>
+</html>
